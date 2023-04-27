@@ -13,6 +13,8 @@
 		EC96258729F9D12F004AC6AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC96258629F9D12F004AC6AE /* Assets.xcassets */; };
 		EC96258A29F9D12F004AC6AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC96258829F9D12F004AC6AE /* LaunchScreen.storyboard */; };
 		EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96259129F9D1C6004AC6AE /* MainTabBarController.swift */; };
+		EC96259929F9DBDB004AC6AE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96259829F9DBDB004AC6AE /* SearchCell.swift */; };
+		EC96259C29FA9095004AC6AE /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96259B29FA9095004AC6AE /* UIView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EC96258929F9D12F004AC6AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC96258B29F9D12F004AC6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC96259129F9D1C6004AC6AE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		EC96259829F9DBDB004AC6AE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		EC96259B29FA9095004AC6AE /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				EC96259429F9D327004AC6AE /* Support */,
+				EC96259A29FA9081004AC6AE /* Extension */,
+				EC96259729F9DBC8004AC6AE /* Views */,
 				EC96259529F9D340004AC6AE /* Controller */,
 				EC96258129F9D12D004AC6AE /* SearchViewController.swift */,
 			);
@@ -97,6 +103,22 @@
 				EC96259129F9D1C6004AC6AE /* MainTabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		EC96259729F9DBC8004AC6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC96259829F9DBDB004AC6AE /* SearchCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC96259A29FA9081004AC6AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EC96259B29FA9095004AC6AE /* UIView+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC96259C29FA9095004AC6AE /* UIView+Ext.swift in Sources */,
 				EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */,
+				EC96259929F9DBDB004AC6AE /* SearchCell.swift in Sources */,
 				EC96257E29F9D12D004AC6AE /* AppDelegate.swift in Sources */,
 				EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */,
 				EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */,

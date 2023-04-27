@@ -20,6 +20,8 @@ class SearchViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        style()
+        layout()
     }
 }
 
@@ -27,7 +29,7 @@ class SearchViewController: UICollectionViewController {
 extension SearchViewController {
     
     private func style() {
-        
+        collectionView.register(SearchCell.self, forCellWithReuseIdentifier: SearchCell.identifier)
     }
     
     private func layout() {
@@ -35,5 +37,27 @@ extension SearchViewController {
     }
 }
 
+//MARK: - UICollectionViewDataSource
+extension SearchViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.identifier, for: indexPath) as? SearchCell else {
+            fatalError()
+        }
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.bounds.size.width, height: 300)
+    }
+}
 
 
