@@ -30,6 +30,11 @@ extension SearchViewController {
     
     private func style() {
         collectionView.register(SearchCell.self, forCellWithReuseIdentifier: SearchCell.identifier)
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
     }
     
     private func layout() {
@@ -60,4 +65,10 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+//MARK: - SearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
+}
