@@ -65,3 +65,9 @@ extension UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
 }
+
+extension String {
+    var asUrl: URL? {
+        return URL(string: self)
+    }
+}

@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchCell: UICollectionViewCell {
     static let identifier = "SearchCell"
     
     //MARK: - Properties
+    
+    var result: Results? {
+        didSet {
+            configure()
+        }
+    }
+    
     private let appIconImageView: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
@@ -131,5 +139,18 @@ extension SearchCell {
             overalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             overalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func configure() {
+        guard let result = self.result else {
+            return
+        }
+        self.nameLabel.text = result.trackName
+        self.ratingsLabel.text = String(format: "%.2f", result.averageUserRating ?? 0)
+        self.categoryLabel.text = result.primaryGenreName
+        self.appIconImageView.kf.setImage(with: result.artworkUrl100.asUrl)
+        self.screenImageView1.kf.setImage(with: result.screenshotUrls?[0].asUrl)
+        self.screenImageView2.kf.setImage(with: result.screenshotUrls?[1].asUrl)
+        self.screenImageView3.kf.setImage(with: result.screenshotUrls?[2].asUrl)
     }
 }

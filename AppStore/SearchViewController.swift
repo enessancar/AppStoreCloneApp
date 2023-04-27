@@ -9,6 +9,13 @@ import UIKit
 
 class SearchViewController: UICollectionViewController {
     
+    //MARK: - Properties
+    var searchResults: [Results] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     //MARK: - Lifecycle
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -46,13 +53,14 @@ extension SearchViewController {
 extension SearchViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        searchResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.identifier, for: indexPath) as? SearchCell else {
             fatalError()
         }
+        cell.result = self.searchResults[indexPath.row]
         return cell
     }
 }
@@ -63,12 +71,22 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.bounds.size.width, height: 300)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        8.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: 0, height: 10)
+    }
 }
 
 //MARK: - SearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        SearchService.fetchData(searchText: searchText) { result in
+            self.searchResults = result
+        }
     }
 }
