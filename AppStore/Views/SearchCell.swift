@@ -29,29 +29,10 @@ class SearchCell: UICollectionViewCell {
         return image
     }()
     
-    private let screenImageView1: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .purple
-        return imageView
-    }()
+    private let screenImageView1 = ScreenImageView(frame: .zero)
+    private let screenImageView2 = ScreenImageView(frame: .zero)
+    private let screenImageView3 = ScreenImageView(frame: .zero)
     
-    private let screenImageView2: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .purple
-        return imageView
-    }()
-    
-    private let screenImageView3: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .purple
-        return imageView
-    }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -145,12 +126,16 @@ extension SearchCell {
         guard let result = self.result else {
             return
         }
-        self.nameLabel.text = result.trackName
-        self.ratingsLabel.text = String(format: "%.2f", result.averageUserRating ?? 0)
-        self.categoryLabel.text = result.primaryGenreName
-        self.appIconImageView.kf.setImage(with: result.artworkUrl100.asUrl)
-        self.screenImageView1.kf.setImage(with: result.screenshotUrls?[0].asUrl)
-        self.screenImageView2.kf.setImage(with: result.screenshotUrls?[1].asUrl)
-        self.screenImageView3.kf.setImage(with: result.screenshotUrls?[2].asUrl)
+        let viewModel = SearchCellViewModel(result: result)
+        
+        self.nameLabel.text = viewModel.nameLabel
+        self.ratingsLabel.text = viewModel.ratingLabel
+        self.categoryLabel.text = viewModel.categoryLabel
+        
+        self.appIconImageView.kf.setImage(with: viewModel.appImage)
+        
+        self.screenImageView1.kf.setImage(with: viewModel.screenshot1)
+        self.screenImageView2.kf.setImage(with: viewModel.screenshot2)
+        self.screenImageView3.kf.setImage(with: viewModel.screenshot3)
     }
 }

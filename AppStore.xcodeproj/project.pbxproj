@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EC75100D29FB0D960012C433 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC75100C29FB0D960012C433 /* Kingfisher */; };
 		EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75100F29FB13430012C433 /* SearchCellViewModel.swift */; };
+		EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */; };
+		EC75101429FB36F00012C433 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101329FB36F00012C433 /* TodayViewController.swift */; };
+		EC75101629FB37040012C433 /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101529FB37040012C433 /* AppsViewController.swift */; };
+		EC75101829FBB8AD0012C433 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101729FBB8AD0012C433 /* AppCell.swift */; };
+		EC75101B29FBCD530012C433 /* AppCellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */; };
 		EC96257E29F9D12D004AC6AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96257D29F9D12D004AC6AE /* AppDelegate.swift */; };
 		EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96257F29F9D12D004AC6AE /* SceneDelegate.swift */; };
 		EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96258129F9D12D004AC6AE /* SearchViewController.swift */; };
@@ -24,6 +29,11 @@
 
 /* Begin PBXFileReference section */
 		EC75100F29FB13430012C433 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
+		EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenImageView+Ext.swift"; sourceTree = "<group>"; };
+		EC75101329FB36F00012C433 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		EC75101529FB37040012C433 /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
+		EC75101729FBB8AD0012C433 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
+		EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellDetailViewController.swift; sourceTree = "<group>"; };
 		EC96257A29F9D12D004AC6AE /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC96257D29F9D12D004AC6AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC96257F29F9D12D004AC6AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EC75101929FBCC6D0012C433 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				EC75101529FB37040012C433 /* AppsViewController.swift */,
+				EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
 		EC96257129F9D12D004AC6AE = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +104,6 @@
 				EC96259729F9DBC8004AC6AE /* Views */,
 				EC75100E29FB12F70012C433 /* ViewModel */,
 				EC96259529F9D340004AC6AE /* Controller */,
-				EC96258129F9D12D004AC6AE /* SearchViewController.swift */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -114,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				EC96259629F9D349004AC6AE /* TabBar */,
+				EC75101929FBCC6D0012C433 /* Apps */,
+				EC75101329FB36F00012C433 /* TodayViewController.swift */,
+				EC96258129F9D12D004AC6AE /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				EC96259829F9DBDB004AC6AE /* SearchCell.swift */,
+				EC75101729FBB8AD0012C433 /* AppCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EC96259B29FA9095004AC6AE /* UIView+Ext.swift */,
+				EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -238,13 +261,18 @@
 			files = (
 				EC96259C29FA9095004AC6AE /* UIView+Ext.swift in Sources */,
 				EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */,
+				EC75101629FB37040012C433 /* AppsViewController.swift in Sources */,
 				EC9625A529FAEBCF004AC6AE /* SearchResult.swift in Sources */,
 				EC96259929F9DBDB004AC6AE /* SearchCell.swift in Sources */,
+				EC75101829FBB8AD0012C433 /* AppCell.swift in Sources */,
 				EC96257E29F9D12D004AC6AE /* AppDelegate.swift in Sources */,
+				EC75101B29FBCD530012C433 /* AppCellDetailViewController.swift in Sources */,
 				EC96259F29FAE04F004AC6AE /* SearchService.swift in Sources */,
 				EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */,
 				EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */,
+				EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */,
 				EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */,
+				EC75101429FB36F00012C433 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
