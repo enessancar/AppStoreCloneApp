@@ -13,7 +13,11 @@
 		EC75101429FB36F00012C433 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101329FB36F00012C433 /* TodayViewController.swift */; };
 		EC75101629FB37040012C433 /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101529FB37040012C433 /* AppsViewController.swift */; };
 		EC75101829FBB8AD0012C433 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101729FBB8AD0012C433 /* AppCell.swift */; };
-		EC75101B29FBCD530012C433 /* AppCellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */; };
+		EC75101B29FBCD530012C433 /* AppCellDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101A29FBCD530012C433 /* AppCellDetailVC.swift */; };
+		EC75101D29FBE3350012C433 /* AppCellDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101C29FBE3350012C433 /* AppCellDetailCell.swift */; };
+		EC75101F29FC17FC0012C433 /* AppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101E29FC17FC0012C433 /* AppsHeaderView.swift */; };
+		EC75102129FC628B0012C433 /* AppsHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75102029FC628B0012C433 /* AppsHeaderVC.swift */; };
+		EC75102329FD0DE80012C433 /* AppsHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75102229FD0DE80012C433 /* AppsHeaderViewCell.swift */; };
 		EC96257E29F9D12D004AC6AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96257D29F9D12D004AC6AE /* AppDelegate.swift */; };
 		EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96257F29F9D12D004AC6AE /* SceneDelegate.swift */; };
 		EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96258129F9D12D004AC6AE /* SearchViewController.swift */; };
@@ -33,7 +37,11 @@
 		EC75101329FB36F00012C433 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		EC75101529FB37040012C433 /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		EC75101729FBB8AD0012C433 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
-		EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellDetailViewController.swift; sourceTree = "<group>"; };
+		EC75101A29FBCD530012C433 /* AppCellDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellDetailVC.swift; sourceTree = "<group>"; };
+		EC75101C29FBE3350012C433 /* AppCellDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellDetailCell.swift; sourceTree = "<group>"; };
+		EC75101E29FC17FC0012C433 /* AppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderView.swift; sourceTree = "<group>"; };
+		EC75102029FC628B0012C433 /* AppsHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderVC.swift; sourceTree = "<group>"; };
+		EC75102229FD0DE80012C433 /* AppsHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderViewCell.swift; sourceTree = "<group>"; };
 		EC96257A29F9D12D004AC6AE /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC96257D29F9D12D004AC6AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC96257F29F9D12D004AC6AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				EC75101529FB37040012C433 /* AppsViewController.swift */,
-				EC75101A29FBCD530012C433 /* AppCellDetailViewController.swift */,
+				EC75101A29FBCD530012C433 /* AppCellDetailVC.swift */,
+				EC75102029FC628B0012C433 /* AppsHeaderVC.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -152,6 +161,9 @@
 			children = (
 				EC96259829F9DBDB004AC6AE /* SearchCell.swift */,
 				EC75101729FBB8AD0012C433 /* AppCell.swift */,
+				EC75101C29FBE3350012C433 /* AppCellDetailCell.swift */,
+				EC75101E29FC17FC0012C433 /* AppsHeaderView.swift */,
+				EC75102229FD0DE80012C433 /* AppsHeaderViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,17 +274,21 @@
 				EC96259C29FA9095004AC6AE /* UIView+Ext.swift in Sources */,
 				EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */,
 				EC75101629FB37040012C433 /* AppsViewController.swift in Sources */,
+				EC75102329FD0DE80012C433 /* AppsHeaderViewCell.swift in Sources */,
+				EC75102129FC628B0012C433 /* AppsHeaderVC.swift in Sources */,
 				EC9625A529FAEBCF004AC6AE /* SearchResult.swift in Sources */,
 				EC96259929F9DBDB004AC6AE /* SearchCell.swift in Sources */,
 				EC75101829FBB8AD0012C433 /* AppCell.swift in Sources */,
 				EC96257E29F9D12D004AC6AE /* AppDelegate.swift in Sources */,
-				EC75101B29FBCD530012C433 /* AppCellDetailViewController.swift in Sources */,
+				EC75101F29FC17FC0012C433 /* AppsHeaderView.swift in Sources */,
+				EC75101B29FBCD530012C433 /* AppCellDetailVC.swift in Sources */,
 				EC96259F29FAE04F004AC6AE /* SearchService.swift in Sources */,
 				EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */,
 				EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */,
 				EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */,
 				EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */,
 				EC75101429FB36F00012C433 /* TodayViewController.swift in Sources */,
+				EC75101D29FBE3350012C433 /* AppCellDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

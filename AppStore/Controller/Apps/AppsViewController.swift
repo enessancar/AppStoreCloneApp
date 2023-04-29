@@ -29,6 +29,8 @@ class AppsViewController: UICollectionViewController {
 extension AppsViewController {
     private func style() {
         collectionView.register(AppCell.self, forCellWithReuseIdentifier: AppCell.identifier)
+        
+        collectionView.register(AppsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AppsHeaderView.identifier)
     }
     
     private func layout() {
@@ -48,12 +50,23 @@ extension AppsViewController {
         }
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderView.identifier, for: indexPath) as? AppsHeaderView else {
+            fatalError()
+        }
+        return header
+    }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension AppsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width, height: 250)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: view.frame.width, height: 250)
     }
 }

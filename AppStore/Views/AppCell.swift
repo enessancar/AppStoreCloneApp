@@ -13,10 +13,12 @@ class AppCell: UICollectionViewCell {
     //MARK: - Properties
     private let sectionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         label.text = "Section Name"
         return label
     }()
+    
+    private let appCellDetailVC = AppCellDetailVC()
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -32,18 +34,24 @@ class AppCell: UICollectionViewCell {
 
 extension AppCell {
     private func style() {
-        backgroundColor = .green
         
         sectionLabel.translatesAutoresizingMaskIntoConstraints = false
+        appCellDetailVC.view.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {
         addSubview(sectionLabel)
+        addSubview(appCellDetailVC.view)
         
         NSLayoutConstraint.activate([
-            sectionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            sectionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            sectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            sectionLabel.topAnchor.constraint(equalTo: topAnchor),
+            sectionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            sectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            appCellDetailVC.view.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor),
+            appCellDetailVC.view.leadingAnchor.constraint(equalTo: leadingAnchor),
+            appCellDetailVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
+            appCellDetailVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
