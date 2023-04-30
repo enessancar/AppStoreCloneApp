@@ -9,6 +9,13 @@ import UIKit
 
 class AppCellDetailVC: UICollectionViewController {
     
+    //MARK: -  Properties
+    var results: [FeedResult] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     //MARK: - Lifecycle
     init() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -39,13 +46,14 @@ extension AppCellDetailVC {
 extension AppCellDetailVC {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        results.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCellDetailCell.identifier, for: indexPath) as? AppCellDetailCell else {
             fatalError()
         }
+        cell.results = results[indexPath.row]
         return cell
     }
     

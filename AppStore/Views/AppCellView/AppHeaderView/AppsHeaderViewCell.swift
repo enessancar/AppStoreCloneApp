@@ -6,21 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AppsHeaderViewCell: UICollectionViewCell {
     static let identifier = "AppsHeaderViewCell"
     
+    var appHeaderModel: AppHeaderModel? {
+        didSet {
+            configure()
+        }
+    }
+    
     //MARK: - Properties
     private let firmLabel: UILabel = {
         let label = UILabel()
-        label.text = "Linkedin"
-        label.font = .boldSystemFont(ofSize: 12)
+        label.textColor = .blue
+        label.font = .boldSystemFont(ofSize: 13)
         return label
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 28)
+        label.font = .systemFont(ofSize: 24)
         label.text = "Keeping up with friends is faster than ever"
         return label
     }()
@@ -67,5 +74,15 @@ extension AppsHeaderViewCell {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor )
         ])
+    }
+    
+    private func configure() {
+        guard let result = appHeaderModel else {
+            return
+        }
+        let viewModel = AppsHeaderViewModel(result: result)
+        self.firmLabel.text = viewModel.name
+        self.titleLabel.text = viewModel.title
+        self.appImage.kf.setImage(with: viewModel.imageUrl)
     }
 }

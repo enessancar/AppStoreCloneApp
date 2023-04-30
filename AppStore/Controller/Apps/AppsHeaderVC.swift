@@ -10,7 +10,11 @@ import UIKit
 class AppsHeaderVC: UICollectionViewController {
     
     //MARK: - Properties
-    
+    var appsHeaderResult: [AppHeaderModel] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     //MARK: - Lifecycle
     init() {
@@ -38,14 +42,19 @@ extension AppsHeaderVC {
 extension AppsHeaderVC {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        appsHeaderResult.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderViewCell.identifier, for: indexPath) as? AppsHeaderViewCell else {
             fatalError()
         }
+        cell.appHeaderModel = appsHeaderResult[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 16, bottom: 12, right: 0)
     }
 }
 
@@ -53,6 +62,6 @@ extension AppsHeaderVC {
 extension AppsHeaderVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 30, height: view.frame.height)
+        return .init(width: view.frame.width - 48, height: view.frame.height)
     }
 }

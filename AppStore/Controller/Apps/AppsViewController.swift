@@ -9,6 +9,10 @@ import UIKit
 
 class AppsViewController: UICollectionViewController {
     
+    //MARK: - Properties
+    var feedArray: [Feed] = []
+    var appsHeaderResult: [AppHeaderModel] = []
+    
     //MARK: - Lifecycle
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -22,6 +26,7 @@ class AppsViewController: UICollectionViewController {
         super.viewDidLoad()
         style()
         layout()
+        fetchDetailData()
     }
 }
 
@@ -38,16 +43,44 @@ extension AppsViewController {
     }
 }
 
+//MARK: - Service
+extension AppsViewController {
+    
+    private func fetchDetailData() {
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        
+        AppsService.fetchData(urlString: URL_TOPFREE) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.enter()
+        AppsService.fetchData(urlString: URL_TOPPAID) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.enter()
+        AppsService.fetchHeaderData(urlString: URL_HEADER) { result in
+            dispatchGroup.leave()
+            self.appsHeaderResult = result
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.collectionView.reloadData()
+        }
+    }
+}
 //MARK: - UICollectionVewDataSource
 extension AppsViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        feedArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCell.identifier, for: indexPath) as? AppCell else {
             fatalError()
         }
+        cell.feed = self.feedArray[indexPath.row]
         return cell
     }
     
@@ -55,6 +88,7 @@ extension AppsViewController {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderView.identifier, for: indexPath) as? AppsHeaderView else {
             fatalError()
         }
+        header.appsHeaderResult = self.appsHeaderResult
         return header
     }
 }

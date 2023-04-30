@@ -32,7 +32,7 @@ struct SearchCellViewModel {
     }
     
     var screenshot1: URL? {
-        return URL(string: result.screenshotUrls?[0])
+        return URL(string: result.screenshotUrls[0])
     }
     
     var screenshot2: URL? {

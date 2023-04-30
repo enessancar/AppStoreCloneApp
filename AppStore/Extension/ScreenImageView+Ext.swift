@@ -27,3 +27,9 @@ class ScreenImageView: UIImageView {
         layer.borderColor = UIColor.darkGray.cgColor
     }
 }
+
+extension String {
+    var asUrl: URL? {
+        return URL(string: self)
+    }
+}

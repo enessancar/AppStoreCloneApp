@@ -13,6 +13,12 @@ class AppsHeaderView: UICollectionReusableView {
     //MARK: - Properties
     private let appsHeaderVC = AppsHeaderVC()
     
+    var appsHeaderResult: [AppHeaderModel] = [] {
+        didSet {
+            appsHeaderVC.appsHeaderResult = appsHeaderResult
+        }
+    }
+    
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,5 +48,9 @@ extension AppsHeaderView {
             appsHeaderVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
             appsHeaderVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func configure() {
+        
     }
 }
