@@ -19,49 +19,15 @@ class SearchCell: UICollectionViewCell {
         }
     }
     
-    private let appIconImageView: UIImageView = {
-        let image = UIImageView()
-        image.clipsToBounds = true
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 12
-        image.backgroundColor = .purple
-        image.configSize(height: 64, width: 64)
-        return image
-    }()
-    
     private let screenImageView1 = ScreenImageView(frame: .zero)
     private let screenImageView2 = ScreenImageView(frame: .zero)
     private let screenImageView3 = ScreenImageView(frame: .zero)
     
-    
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Twitter"
-        return label
-    }()
-    
-    private let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Media&News"
-        return label
-    }()
-    
-    private let ratingsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1.9M"
-        return label
-    }()
-    
-    private lazy var getButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.layer.cornerRadius = 16
-        button.backgroundColor = UIColor(white: 0.90, alpha: 1)
-        button.configSize(height: 32, width: 80)
-        return button
-    }()
+    private let appIconImageView = IconImageView(height: 64, width: 64, cornerRadius: 12)
+    private let nameLabel = BodyLabel()
+    private let categoryLabel = BodyLabel()
+    private let ratingsLabel = BodyLabel() 
+    private lazy var getButton = GetButton()
     
     private var headerStackView: UIStackView!
     private var labelStackView: UIStackView!
@@ -71,6 +37,7 @@ class SearchCell: UICollectionViewCell {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame:.zero)
+        configure()
         style()
         layout()
     }

@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol AppCellProtocol: AnyObject {
+    func goAppInfoViewController(id: String)
+}
+
 class AppCell: UICollectionViewCell {
     static let identifier = "AppCell"
+    weak var delegate: AppCellProtocol?
     
     var feed: Feed? {
         didSet {
@@ -17,13 +22,7 @@ class AppCell: UICollectionViewCell {
     }
     
     //MARK: - Properties
-    private let sectionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.text = "Section Name"
-        return label
-    }()
-    
+    private let sectionLabel = BodyLabel(fontSize: 24, weight: .bold, textColor: .label, numberOfLines: 1)
     private let appCellDetailVC = AppCellDetailVC()
     
     //MARK: - Lifecycle
@@ -41,8 +40,8 @@ class AppCell: UICollectionViewCell {
 extension AppCell {
     private func style() {
         
-        sectionLabel.translatesAutoresizingMaskIntoConstraints = false
         appCellDetailVC.view.translatesAutoresizingMaskIntoConstraints = false
+        appCellDetailVC.delegate = self
     }
     
     private func layout() {
@@ -67,5 +66,12 @@ extension AppCell {
         }
         self.sectionLabel.text = feed.title
         self.appCellDetailVC.results = feed.results
+    }
+}
+
+//MARK: - AppCellDetailVCProtocol
+extension AppCell: AppCellDetailVCProtocol {
+    func goAppInfoViewController(id: String) {
+        delegate?.goAppInfoViewController(id: id)
     }
 }

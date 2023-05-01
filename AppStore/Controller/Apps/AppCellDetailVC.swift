@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol AppCellDetailVCProtocol: AnyObject {
+    func goAppInfoViewController(id: String)
+}
+
 class AppCellDetailVC: UICollectionViewController {
     
     //MARK: -  Properties
+    weak var delegate: AppCellDetailVCProtocol?
+    
     var results: [FeedResult] = [] {
         didSet {
             collectionView.reloadData()
@@ -54,6 +60,7 @@ extension AppCellDetailVC {
             fatalError()
         }
         cell.results = results[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -74,5 +81,12 @@ extension AppCellDetailVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         3
+    }
+}
+
+//MARK: - AppCellDetailCellProtocol
+extension AppCellDetailVC: AppCellDetailCellProtocol {
+    func goAppInfoViewController(id: String) {
+        delegate?.goAppInfoViewController(id: id)
     }
 }

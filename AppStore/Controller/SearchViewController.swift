@@ -23,7 +23,7 @@ class SearchViewController: UICollectionViewController {
         label.font = .systemFont(ofSize: 20, weight: .regular)
         label.numberOfLines = 0
         return label
-    }()
+    }()  
     
     //MARK: - Lifecycle
     init() {

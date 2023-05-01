@@ -18,20 +18,11 @@ class AppsHeaderViewCell: UICollectionViewCell {
     }
     
     //MARK: - Properties
-    private let firmLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .blue
-        label.font = .boldSystemFont(ofSize: 13)
-        return label
-    }()
+   
+    private var stackView: UIStackView!
+    private let firmLabel = BodyLabel(fontSize: 13, weight: .bold, textColor: .blue, numberOfLines: 1)
+    private let titleLabel = BodyLabel(fontSize: .systemFont(ofSize: 24))
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
-        label.text = "Keeping up with friends is faster than ever"
-        return label
-    }()
-
     private let appImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
@@ -40,8 +31,6 @@ class AppsHeaderViewCell: UICollectionViewCell {
         image.backgroundColor = .red
         return image
     }()
-    
-    private var stackView: UIStackView!
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {

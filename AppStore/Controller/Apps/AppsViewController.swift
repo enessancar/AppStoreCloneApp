@@ -39,7 +39,6 @@ extension AppsViewController {
     }
     
     private func layout() {
-        
     }
 }
 
@@ -81,6 +80,7 @@ extension AppsViewController {
             fatalError()
         }
         cell.feed = self.feedArray[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -102,5 +102,14 @@ extension AppsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: view.frame.width, height: 250)
+    }
+}
+
+//MARK: - App
+extension AppsViewController: AppCellProtocol {
+    func goAppInfoViewController(id: String) {
+        let contoller = AppInfoVC()
+        contoller.appID = id
+        self.navigationController?.pushViewController(contoller, animated: true)
     }
 }
