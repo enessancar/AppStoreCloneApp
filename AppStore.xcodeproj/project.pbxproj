@@ -14,6 +14,9 @@
 		EC513AEB29FFAF1E003AA4DC /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AEA29FFAF1E003AA4DC /* IconImageView.swift */; };
 		EC513AED29FFD0EB003AA4DC /* AppInfoHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AEC29FFD0EB003AA4DC /* AppInfoHeaderCellViewModel.swift */; };
 		EC513AF02A000B2F003AA4DC /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AEF2A000B2F003AA4DC /* PreviewCell.swift */; };
+		EC513AF32A0050F2003AA4DC /* PreviewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */; };
+		EC513AF52A00699B003AA4DC /* PreviewDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF42A00699B003AA4DC /* PreviewDetailCell.swift */; };
+		EC513AF72A0149C0003AA4DC /* PreviewDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF62A0149C0003AA4DC /* PreviewDetailCellViewModel.swift */; };
 		EC75100D29FB0D960012C433 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC75100C29FB0D960012C433 /* Kingfisher */; };
 		EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75100F29FB13430012C433 /* SearchCellViewModel.swift */; };
 		EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */; };
@@ -52,6 +55,9 @@
 		EC513AEA29FFAF1E003AA4DC /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		EC513AEC29FFD0EB003AA4DC /* AppInfoHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoHeaderCellViewModel.swift; sourceTree = "<group>"; };
 		EC513AEF2A000B2F003AA4DC /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCellVC.swift; sourceTree = "<group>"; };
+		EC513AF42A00699B003AA4DC /* PreviewDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailCell.swift; sourceTree = "<group>"; };
+		EC513AF62A0149C0003AA4DC /* PreviewDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailCellViewModel.swift; sourceTree = "<group>"; };
 		EC75100F29FB13430012C433 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenImageView+Ext.swift"; sourceTree = "<group>"; };
 		EC75101329FB36F00012C433 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -141,8 +147,17 @@
 			isa = PBXGroup;
 			children = (
 				EC513AEF2A000B2F003AA4DC /* PreviewCell.swift */,
+				EC513AF42A00699B003AA4DC /* PreviewDetailCell.swift */,
 			);
 			path = PreviewCell;
+			sourceTree = "<group>";
+		};
+		EC513AF12A0050E1003AA4DC /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		EC75100E29FB12F70012C433 /* ViewModel */ = {
@@ -152,6 +167,7 @@
 				EC75102D29FDC47F0012C433 /* AppCellDetailCellViewModel.swift */,
 				EC75103129FE73030012C433 /* AppsHeaderViewModel.swift */,
 				EC513AEC29FFD0EB003AA4DC /* AppInfoHeaderCellViewModel.swift */,
+				EC513AF62A0149C0003AA4DC /* PreviewDetailCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +263,7 @@
 		EC96259529F9D340004AC6AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EC513AF12A0050E1003AA4DC /* Preview */,
 				EC96259629F9D349004AC6AE /* TabBar */,
 				EC75101929FBCC6D0012C433 /* Apps */,
 				EC75101329FB36F00012C433 /* TodayViewController.swift */,
@@ -390,6 +407,7 @@
 				EC75102729FD6E980012C433 /* AppModel.swift in Sources */,
 				EC75102329FD0DE80012C433 /* AppsHeaderViewCell.swift in Sources */,
 				EC75102129FC628B0012C433 /* AppsHeaderVC.swift in Sources */,
+				EC513AF32A0050F2003AA4DC /* PreviewCellVC.swift in Sources */,
 				EC75102529FD62FD0012C433 /* AppsService.swift in Sources */,
 				EC513AE829FFA4E2003AA4DC /* BodyLabel.swift in Sources */,
 				EC9625A529FAEBCF004AC6AE /* SearchResult.swift in Sources */,
@@ -402,10 +420,12 @@
 				EC75103229FE73030012C433 /* AppsHeaderViewModel.swift in Sources */,
 				EC75101B29FBCD530012C433 /* AppCellDetailVC.swift in Sources */,
 				EC513ADE29FEA38F003AA4DC /* AppInfoVC.swift in Sources */,
+				EC513AF52A00699B003AA4DC /* PreviewDetailCell.swift in Sources */,
 				EC513AE129FEAEDA003AA4DC /* AppInfoHeaderCell.swift in Sources */,
 				EC96259F29FAE04F004AC6AE /* SearchService.swift in Sources */,
 				EC75102E29FDC47F0012C433 /* AppCellDetailCellViewModel.swift in Sources */,
 				EC75102929FDBAE10012C433 /* Constant.swift in Sources */,
+				EC513AF72A0149C0003AA4DC /* PreviewDetailCellViewModel.swift in Sources */,
 				EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */,
 				EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */,
 				EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */,

@@ -70,11 +70,13 @@ extension AppInfoVC {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppInfoHeaderCell.identifier, for: indexPath) as? AppInfoHeaderCell else {
                 fatalError()
             }
-            cell.results = results.first
-        } else {
+            cell.results = self.results.first
+            return cell
+        } else if indexPath.item == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewCell.identifier, for: indexPath) as? PreviewCell else {
                 fatalError()
             }
+            cell.resultsImage = results.first?.screenshotUrls ?? []     
             return cell
         }
         return UICollectionViewCell()
@@ -92,9 +94,9 @@ extension AppInfoVC: UICollectionViewDelegateFlowLayout {
             
             cell.layoutIfNeeded()
             let estimatedCell = cell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
-            return .init(width: view.frame.width, height: estimatedCell.height)
+            return .init(width: view.frame.width - 10, height: estimatedCell.height)
         } else {
-            return .init(width: view.frame.width, height: 400)
+            return .init(width: view.frame.width, height: 500)
         }
     }
     

@@ -23,6 +23,12 @@ class BodyLabel: UILabel {
         self.font = fontSize
     }
     
+    convenience init(text: String, fontSize: CGFloat, weight: UIFont.Weight) {
+        self.init(frame: .zero)
+        self.text = text
+        self.font = .systemFont(ofSize: fontSize, weight: weight)
+    }
+    
     convenience init(fontSize: CGFloat, weight: UIFont.Weight, textColor: UIColor, numberOfLines: Int) {
         self.init(frame: .zero)
         
