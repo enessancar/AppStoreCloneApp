@@ -12,6 +12,12 @@ class RatingCell: UICollectionViewCell {
     static let identifier = "RatingCell"
     
     //MARK: - Properties
+    var resultsEntry: [Entry] = [] {
+        didSet {
+            ratingCellVC.resultsEntry = resultsEntry
+        }
+    }
+    
     let ratingLabel = BodyLabel(text: "Review & Ratings", fontSize: 19, weight: .bold)
     private let ratingCellVC = RatingsCellVC()
     

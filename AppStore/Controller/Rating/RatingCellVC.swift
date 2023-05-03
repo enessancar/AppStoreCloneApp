@@ -10,7 +10,11 @@ import UIKit
 class RatingsCellVC: UICollectionViewController {
     
     //MARK: - Properties
-    
+    var resultsEntry: [Entry] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     //MARK: - Lifecycle
     init() {
@@ -36,13 +40,14 @@ extension RatingsCellVC {
 extension RatingsCellVC {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        resultsEntry.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RatingDetailCell.identifier, for: indexPath) as? RatingDetailCell else {
             fatalError()
         }
+        cell.resultsEntry = resultsEntry[indexPath.row]
         return cell
     }
 }

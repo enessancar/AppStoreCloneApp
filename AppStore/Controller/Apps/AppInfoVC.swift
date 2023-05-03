@@ -16,10 +16,17 @@ class AppInfoVC: UICollectionViewController {
         }
     }
     
+    var resultsEntry: [Entry] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     var appID: String? {
         didSet {
             guard let id = self.appID else { return }
             fetchData(id: id)
+            fetchRatingsData(id: id)
         }
     }
     
@@ -43,6 +50,12 @@ extension AppInfoVC {
     private func fetchData(id: String) {
         SearchService.fetchDataID(id: id) { results in
             self.results = results
+        }
+    }
+    
+    private func fetchRatingsData(id: String) {
+        AppsService.fetchRatingData(id: id) { resultsEntry in
+            self.resultsEntry = resultsEntry
         }
     }
 }
@@ -83,6 +96,7 @@ extension AppInfoVC {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RatingCell.identifier, for: indexPath) as? RatingCell else {
                 fatalError()
             }
+            cell.resultsEntry = self.resultsEntry
             return cell
         }
     }
