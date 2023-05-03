@@ -21,18 +21,14 @@ class AppInfoVC: UICollectionViewController {
             collectionView.reloadData()
         }
     }
-    
-    var appID: String? {
-        didSet {
-            guard let id = self.appID else { return }
-            fetchData(id: id)
-            fetchRatingsData(id: id)
-        }
-    }
-    
+    let appID: String
+       
     //MARK: - Lifecycle
-    init() {
+    init(id: String) {
+        self.appID = id
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        fetchData(id: appID)
+        fetchRatingsData(id: appID)
     }
     
     required init?(coder: NSCoder) {
