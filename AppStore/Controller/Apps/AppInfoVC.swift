@@ -54,6 +54,7 @@ extension AppInfoVC {
         
         collectionView.register(AppInfoHeaderCell.self, forCellWithReuseIdentifier: AppInfoHeaderCell.identifier)
         collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: PreviewCell.identifier)
+        collectionView.register(RatingCell.self, forCellWithReuseIdentifier: RatingCell.identifier)
     }
 }
 
@@ -61,7 +62,7 @@ extension AppInfoVC {
 extension AppInfoVC {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -78,8 +79,12 @@ extension AppInfoVC {
             }
             cell.resultsImage = results.first?.screenshotUrls ?? []     
             return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RatingCell.identifier, for: indexPath) as? RatingCell else {
+                fatalError()
+            }
+            return cell
         }
-        return UICollectionViewCell()
     }
 }
 
@@ -95,8 +100,12 @@ extension AppInfoVC: UICollectionViewDelegateFlowLayout {
             cell.layoutIfNeeded()
             let estimatedCell = cell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             return .init(width: view.frame.width - 10, height: estimatedCell.height)
-        } else {
+        }
+        else if indexPath.item == 1 {
             return .init(width: view.frame.width, height: 500)
+        }
+        else {
+            return .init(width: view.frame.width, height: 250)
         }
     }
     

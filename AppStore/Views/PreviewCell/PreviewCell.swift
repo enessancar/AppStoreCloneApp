@@ -48,7 +48,7 @@ extension PreviewCell {
             previewLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             previewLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            previewCellVC.view.topAnchor.constraint(equalTo: previewLabel.bottomAnchor),
+            previewCellVC.view.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 8),
             previewCellVC.view.leadingAnchor.constraint(equalTo: leadingAnchor),
             previewCellVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
             previewCellVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)

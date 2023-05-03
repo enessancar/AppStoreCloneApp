@@ -17,6 +17,11 @@
 		EC513AF32A0050F2003AA4DC /* PreviewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */; };
 		EC513AF52A00699B003AA4DC /* PreviewDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF42A00699B003AA4DC /* PreviewDetailCell.swift */; };
 		EC513AF72A0149C0003AA4DC /* PreviewDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF62A0149C0003AA4DC /* PreviewDetailCellViewModel.swift */; };
+		EC513AFA2A01BE7E003AA4DC /* RatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AF92A01BE7E003AA4DC /* RatingCell.swift */; };
+		EC513AFD2A02403C003AA4DC /* RatingCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513AFC2A02403C003AA4DC /* RatingCellVC.swift */; };
+		EC513B002A024169003AA4DC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC513AFF2A024169003AA4DC /* SnapKit */; };
+		EC513B022A0246A7003AA4DC /* RatingDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513B012A0246A7003AA4DC /* RatingDetailCell.swift */; };
+		EC513B042A02851E003AA4DC /* RatingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC513B032A02851E003AA4DC /* RatingsModel.swift */; };
 		EC75100D29FB0D960012C433 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC75100C29FB0D960012C433 /* Kingfisher */; };
 		EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75100F29FB13430012C433 /* SearchCellViewModel.swift */; };
 		EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */; };
@@ -58,6 +63,10 @@
 		EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCellVC.swift; sourceTree = "<group>"; };
 		EC513AF42A00699B003AA4DC /* PreviewDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailCell.swift; sourceTree = "<group>"; };
 		EC513AF62A0149C0003AA4DC /* PreviewDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailCellViewModel.swift; sourceTree = "<group>"; };
+		EC513AF92A01BE7E003AA4DC /* RatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCell.swift; sourceTree = "<group>"; };
+		EC513AFC2A02403C003AA4DC /* RatingCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCellVC.swift; sourceTree = "<group>"; };
+		EC513B012A0246A7003AA4DC /* RatingDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDetailCell.swift; sourceTree = "<group>"; };
+		EC513B032A02851E003AA4DC /* RatingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsModel.swift; sourceTree = "<group>"; };
 		EC75100F29FB13430012C433 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		EC75101129FB307E0012C433 /* ScreenImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenImageView+Ext.swift"; sourceTree = "<group>"; };
 		EC75101329FB36F00012C433 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC513B002A024169003AA4DC /* SnapKit in Frameworks */,
 				EC75100D29FB0D960012C433 /* Kingfisher in Frameworks */,
 				EC9625A229FAE136004AC6AE /* Alamofire in Frameworks */,
 			);
@@ -158,6 +168,23 @@
 				EC513AF22A0050F2003AA4DC /* PreviewCellVC.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		EC513AF82A01BE42003AA4DC /* RatingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				EC513AF92A01BE7E003AA4DC /* RatingCell.swift */,
+				EC513B012A0246A7003AA4DC /* RatingDetailCell.swift */,
+			);
+			path = RatingsCell;
+			sourceTree = "<group>";
+		};
+		EC513AFB2A024026003AA4DC /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				EC513AFC2A02403C003AA4DC /* RatingCellVC.swift */,
+			);
+			path = Rating;
 			sourceTree = "<group>";
 		};
 		EC75100E29FB12F70012C433 /* ViewModel */ = {
@@ -263,6 +290,7 @@
 		EC96259529F9D340004AC6AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EC513AFB2A024026003AA4DC /* Rating */,
 				EC513AF12A0050E1003AA4DC /* Preview */,
 				EC96259629F9D349004AC6AE /* TabBar */,
 				EC75101929FBCC6D0012C433 /* Apps */,
@@ -288,6 +316,7 @@
 				EC75102B29FDC4370012C433 /* AppCellView */,
 				EC513ADF29FEAEAF003AA4DC /* AppInfoView */,
 				EC513AEE2A000A4B003AA4DC /* PreviewCell */,
+				EC513AF82A01BE42003AA4DC /* RatingsCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +346,7 @@
 				EC9625A429FAEBCF004AC6AE /* SearchResult.swift */,
 				EC75102629FD6E980012C433 /* AppModel.swift */,
 				EC75102F29FE58DF0012C433 /* AppHeaderModel.swift */,
+				EC513B032A02851E003AA4DC /* RatingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +370,7 @@
 			packageProductDependencies = (
 				EC9625A129FAE136004AC6AE /* Alamofire */,
 				EC75100C29FB0D960012C433 /* Kingfisher */,
+				EC513AFF2A024169003AA4DC /* SnapKit */,
 			);
 			productName = AppStore;
 			productReference = EC96257A29F9D12D004AC6AE /* AppStore.app */;
@@ -372,6 +403,7 @@
 			packageReferences = (
 				EC9625A029FAE136004AC6AE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC75100B29FB0D960012C433 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EC513AFE2A024169003AA4DC /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EC96257B29F9D12D004AC6AE /* Products */;
 			projectDirPath = "";
@@ -402,6 +434,7 @@
 				EC96259C29FA9095004AC6AE /* UIView+Ext.swift in Sources */,
 				EC513AF02A000B2F003AA4DC /* PreviewCell.swift in Sources */,
 				EC96258229F9D12D004AC6AE /* SearchViewController.swift in Sources */,
+				EC513AFD2A02403C003AA4DC /* RatingCellVC.swift in Sources */,
 				EC75101629FB37040012C433 /* AppsViewController.swift in Sources */,
 				EC513AE529FFA257003AA4DC /* GetButton.swift in Sources */,
 				EC75102729FD6E980012C433 /* AppModel.swift in Sources */,
@@ -428,11 +461,14 @@
 				EC513AF72A0149C0003AA4DC /* PreviewDetailCellViewModel.swift in Sources */,
 				EC96259229F9D1C6004AC6AE /* MainTabBarController.swift in Sources */,
 				EC75101029FB13430012C433 /* SearchCellViewModel.swift in Sources */,
+				EC513B042A02851E003AA4DC /* RatingsModel.swift in Sources */,
 				EC75101229FB307E0012C433 /* ScreenImageView+Ext.swift in Sources */,
+				EC513B022A0246A7003AA4DC /* RatingDetailCell.swift in Sources */,
 				EC96258029F9D12D004AC6AE /* SceneDelegate.swift in Sources */,
 				EC75101429FB36F00012C433 /* TodayViewController.swift in Sources */,
 				EC75101D29FBE3350012C433 /* AppCellDetailCell.swift in Sources */,
 				EC513AEB29FFAF1E003AA4DC /* IconImageView.swift in Sources */,
+				EC513AFA2A01BE7E003AA4DC /* RatingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +678,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC513AFE2A024169003AA4DC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		EC75100B29FB0D960012C433 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -661,6 +705,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC513AFF2A024169003AA4DC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC513AFE2A024169003AA4DC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		EC75100C29FB0D960012C433 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC75100B29FB0D960012C433 /* XCRemoteSwiftPackageReference "Kingfisher" */;
