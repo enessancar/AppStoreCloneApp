@@ -51,7 +51,6 @@ extension RatingDetailCell {
         ])
         stackView.axis = .vertical
         stackView.spacing = 12
-        stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {

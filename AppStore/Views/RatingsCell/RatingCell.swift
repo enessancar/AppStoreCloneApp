@@ -24,22 +24,16 @@ class RatingCell: UICollectionViewCell {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        style()
         layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 //MARK: - Helpers
 extension RatingCell {
-    private func style() {
-        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
-        ratingCellVC.view.translatesAutoresizingMaskIntoConstraints = false
-    }
     
     private func layout() {
         addSubview(ratingLabel)

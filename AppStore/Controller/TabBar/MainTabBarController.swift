@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
     
     private func setupVC() {
         viewControllers = [
-            createNavController(viewController: TodayViewController(), title: "Today", imageName: "doc.text.image"),
+            createNavController(viewController: TodayVC(), title: "Today", imageName: "doc.text.image"),
             createNavController(viewController: AppsViewController(), title: "Apps", imageName: "square.stack.3d.up.fill"),
             createNavController(viewController: SearchViewController(), title: "Search", imageName: "magnifyingglass")
         ]

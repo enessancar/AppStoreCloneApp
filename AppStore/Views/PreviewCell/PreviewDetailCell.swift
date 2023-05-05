@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 class PreviewDetailCell: UICollectionViewCell {
     static let identifier = "PreviewDetailCell"
@@ -17,19 +18,11 @@ class PreviewDetailCell: UICollectionViewCell {
             configure()
         }
     }
-    
-    private let screenshotImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 12
-        return imageView
-    }()
+    private let screenShotImageView = IconImageView(cornerRadius: 12)
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        style()
         layout()
     }
     
@@ -40,19 +33,13 @@ class PreviewDetailCell: UICollectionViewCell {
 
 //MARK: - Helpers
 extension PreviewDetailCell {
-    private func style() {
-        screenshotImageView.translatesAutoresizingMaskIntoConstraints = false
-    }
     
     private func layout() {
-        addSubview(screenshotImageView)
+        addSubview(screenShotImageView)
         
-        NSLayoutConstraint.activate([
-            screenshotImageView.topAnchor.constraint(equalTo: topAnchor),
-            screenshotImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            screenshotImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            screenshotImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+        screenShotImageView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func configure() {
@@ -60,6 +47,6 @@ extension PreviewDetailCell {
             return
         }
         let viewModel = PreviewDetailCellViewModel(results: result)
-        screenshotImageView.kf.setImage(with: viewModel.imageUrl)
+        screenShotImageView.kf.setImage(with: viewModel.imageUrl)
     }
 }

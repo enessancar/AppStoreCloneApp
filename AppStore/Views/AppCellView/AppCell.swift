@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol AppCellProtocol: AnyObject {
     func goAppInfoViewController(id: String)
@@ -39,8 +40,6 @@ class AppCell: UICollectionViewCell {
 
 extension AppCell {
     private func style() {
-        
-        appCellDetailVC.view.translatesAutoresizingMaskIntoConstraints = false
         appCellDetailVC.delegate = self
     }
     
@@ -48,16 +47,15 @@ extension AppCell {
         addSubview(sectionLabel)
         addSubview(appCellDetailVC.view)
         
-        NSLayoutConstraint.activate([
-            sectionLabel.topAnchor.constraint(equalTo: topAnchor),
-            sectionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            sectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            appCellDetailVC.view.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor),
-            appCellDetailVC.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            appCellDetailVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            appCellDetailVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        sectionLabel.snp.makeConstraints { make in
+            make.trailing.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+        }
+        
+        appCellDetailVC.view.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(sectionLabel.snp_bottomMargin).offset(14)
+        }
     }
     
     private func configure() {

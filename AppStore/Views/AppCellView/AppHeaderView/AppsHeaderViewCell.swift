@@ -22,15 +22,7 @@ class AppsHeaderViewCell: UICollectionViewCell {
     private var stackView: UIStackView!
     private let firmLabel = BodyLabel(fontSize: 13, weight: .bold, textColor: .blue, numberOfLines: 1)
     private let titleLabel = BodyLabel(fontSize: .systemFont(ofSize: 24))
-    
-    private let appImage: UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 8
-        image.clipsToBounds = true
-        image.backgroundColor = .red
-        return image
-    }()
+    private let appImage = IconImageView(cornerRadius: 8)
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -51,18 +43,15 @@ extension AppsHeaderViewCell {
         stackView = UIStackView(arrangedSubviews: [firmLabel, titleLabel, appImage])
         stackView.axis = .vertical
         stackView.spacing = 12
-        stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {
         addSubview(stackView)
         
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor )
-        ])
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(16)
+        }
     }
     
     private func configure() {

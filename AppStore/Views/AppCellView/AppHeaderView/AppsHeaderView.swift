@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class AppsHeaderView: UICollectionReusableView {
     static let identifier = "AppsHeaderView"
@@ -22,8 +23,6 @@ class AppsHeaderView: UICollectionReusableView {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        style()
         layout()
     }
     
@@ -34,23 +33,12 @@ class AppsHeaderView: UICollectionReusableView {
 
 //MARK: - Helpers
 extension AppsHeaderView {
-    
-    private func style() {
-        appsHeaderVC.view.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
+        
     private func layout() {
         addSubview(appsHeaderVC.view)
         
-        NSLayoutConstraint.activate([
-            appsHeaderVC.view.topAnchor.constraint(equalTo: topAnchor),
-            appsHeaderVC.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            appsHeaderVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            appsHeaderVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
-    private func configure() {
-        
+        appsHeaderVC.view.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
     }
 }

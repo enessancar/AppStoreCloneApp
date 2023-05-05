@@ -18,6 +18,12 @@ class IconImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    convenience init(cornerRadius: CGFloat) {
+        self.init(frame: .zero)
+        self.layer.cornerRadius = cornerRadius
+    }
+
+    
     convenience init(height: CGFloat, width: CGFloat, cornerRadius: CGFloat) {
         self.init(frame: .zero)
         self.configSize(height: height, width: width)

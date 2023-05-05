@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class PreviewCell: UICollectionViewCell {
     static let identifier = "PreviewCell"
@@ -23,7 +24,6 @@ class PreviewCell: UICollectionViewCell {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        style()
         layout()
     }
     
@@ -34,24 +34,19 @@ class PreviewCell: UICollectionViewCell {
 
 //MARK: - Helpers
 extension PreviewCell {
-    private func style() {
-        previewLabel.translatesAutoresizingMaskIntoConstraints = false
-        previewCellVC.view.translatesAutoresizingMaskIntoConstraints = false
-    }
+    
     
     private func layout() {
         addSubview(previewLabel)
         addSubview(previewCellVC.view)
         
-        NSLayoutConstraint.activate([
-            previewLabel.topAnchor.constraint(equalTo: topAnchor),
-            previewLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            previewLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            previewCellVC.view.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 8),
-            previewCellVC.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            previewCellVC.view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            previewCellVC.view.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        previewLabel.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+        
+        previewCellVC.view.snp.makeConstraints { make in
+            make.top.equalTo(previewLabel.snp_bottomMargin).offset(8)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
 }

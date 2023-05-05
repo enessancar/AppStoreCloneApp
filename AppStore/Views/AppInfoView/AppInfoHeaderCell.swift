@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 class AppInfoHeaderCell: UICollectionViewCell {
     static let identifier = "AppInfoHeaderCell"
@@ -20,21 +21,9 @@ class AppInfoHeaderCell: UICollectionViewCell {
     private let appIconImageView = IconImageView(height: 120, width: 120, cornerRadius: 16)
     private let nameLabel = BodyLabel(fontSize: 23, weight: .bold, textColor: .label, numberOfLines: 2)
     
+    private let whatsNewLabel = BodyLabel(text: "What's New", fontSize: 20, weight: .bold)
     
-    private let whatsNewLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
-        label.text = "What's New"
-        return label
-    }()
-    
-    private let releaseNoteLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 17)
-        label.text = "Description Label"
-        return label
-    }()
+    private let releaseNoteLabel = BodyLabel(fontSize: .systemFont(ofSize: 17), text: "Description", numberOfLines: 0)
     
     private lazy var  getButton = GetButton()
     
@@ -59,13 +48,14 @@ class AppInfoHeaderCell: UICollectionViewCell {
 extension AppInfoHeaderCell {
     private func style() {
         
-        labelStackView = UIStackView(arrangedSubviews: [nameLabel, getButton])
+        labelStackView = UIStackView(arrangedSubviews: [nameLabel, getButton, UIView()])
         labelStackView.axis = .vertical
         labelStackView.alignment = .leading
+        labelStackView.spacing = 12
         
         headStackView = UIStackView(arrangedSubviews: [appIconImageView, labelStackView])
         headStackView.axis = .horizontal
-        headStackView.spacing = 8
+        headStackView.spacing = 12
         
         newStackView = UIStackView(arrangedSubviews: [whatsNewLabel, releaseNoteLabel])
         newStackView.axis = .vertical
@@ -74,20 +64,20 @@ extension AppInfoHeaderCell {
         overalStackView = UIStackView(arrangedSubviews: [headStackView, newStackView])
         overalStackView.axis = .vertical
         overalStackView.spacing = 16
-        overalStackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {
         addSubview(overalStackView)
         
-        NSLayoutConstraint.activate([
-            labelStackView.topAnchor.constraint(equalTo: headStackView.topAnchor),
-            
-            overalStackView.topAnchor.constraint(equalTo: topAnchor),
-            overalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            overalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            overalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        overalStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        getButton.snp.makeConstraints { make in
+            make.bottom.equalTo(appIconImageView).offset(-12)
+        }
     }
     
     private func configure() {

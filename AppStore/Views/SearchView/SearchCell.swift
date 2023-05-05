@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 class SearchCell: UICollectionViewCell {
     static let identifier = "SearchCell"
@@ -81,12 +82,12 @@ extension SearchCell {
     
     private func layout() {
         addSubview(overalStackView)
-        NSLayoutConstraint.activate([
-            overalStackView.topAnchor.constraint(equalTo: topAnchor),
-            overalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            overalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            overalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        
+        overalStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().offset(4)
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
+        }
     }
     
     private func configure() {
