@@ -86,7 +86,7 @@ extension SearchViewController {
 extension SearchViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let id = String(self.searchResults[indexPath.row].trackId)
+        let id = String(self.searchResults[indexPath.row].trackName)
         let controller = AppInfoVC(id: id)
         self.navigationController?.pushViewController(controller, animated: true)
     }
